@@ -1,0 +1,760 @@
+    <!DOCTYPE html>
+    <html lang="en">
+      <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Shared Swiper config
+  const swiperConfig = {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    centeredSlides: false,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+    loop: true,
+    breakpoints: {
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  };
+
+  // Initialize both sliders with the same config
+  new Swiper(".mySwiper", swiperConfig);
+  new Swiper(".facilitiesSwiper", {
+    ...swiperConfig,
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 4 }
+    }
+  });
+
+  // Scroll Spy for active link highlighting
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll("section[id]");
+
+  function setActiveLink() {
+    const scrollY = window.pageYOffset;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 200;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          const href = link.getAttribute("href");
+          if (href === `#${sectionId}`) {
+            link.classList.add("text-[#F37125]", "font-semibold");
+            link.classList.remove("text-white");
+          } else {
+            link.classList.remove("text-[#F37125]", "font-semibold");
+            link.classList.add("text-white");
+          }
+        });
+      }
+    });
+  }
+
+  setActiveLink();
+  window.addEventListener("scroll", setActiveLink);
+
+  // Mobile menu toggle
+  document.getElementById('mobile-menu-button')?.addEventListener('click', function () {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
+});
+</script>
+
+
+    <script>
+    const API_KEY = "AIzaSyA8FQci8HeUCYZNI2hmmR2po3ChkQDeCys";
+    const PLAYLIST_ID = "PL32ECq6MtXF-oXUrlQ14gT8ggx0B6UdTY";
+    const MAX_RESULTS = 8;
+
+    async function loadYouTubePlaylist() {
+        const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${MAX_RESULTS}&playlistId=${PLAYLIST_ID}&key=${API_KEY}`;
+        
+        try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const container = document.getElementById("youtubeGrid");
+
+        if (!data.items || data.items.length === 0) {
+            container.innerHTML = "<p class='text-red-500'>No videos found.</p>";
+            return;
+        }
+
+        data.items.forEach(item => {
+            const videoId = item.snippet.resourceId.videoId;
+            const iframe = document.createElement("iframe");
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            iframe.className = "w-full rounded-lg shadow-md";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            iframe.allowFullscreen = true;
+
+            container.appendChild(iframe);
+        });
+        } catch (error) {
+        document.getElementById("youtubeGrid").innerHTML = "<p class='text-red-500'>Failed to load videos.</p>";
+        }
+    }
+
+    loadYouTubePlaylist();
+    </script>
+
+
+
+
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ucchvas – Physiotherapy & Rehab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script 
+      type="text/javascript"
+      src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+      id="aisensy-wa-widget"
+      widget-id="aaaebw"
+        >
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!-- SwiperJS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        body {
+        font-family: 'Poppins', sans-serif;
+        }
+        .swiper {
+        padding-bottom: 2rem;
+    }
+    .swiper-wrapper {
+    align-items: stretch;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+    width: 2rem !important;   /* 32px */
+    height: 2rem !important;
+    font-size: 1rem !important; /* icon size */
+    background-color: #23386E;
+    color: #ffffff;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background-color: #F37125;
+    color: white;
+  }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+    font-size: 1rem !important; /* override default large icon */
+    }
+  </style>
+    </head>
+    <body>
+
+    <!-- Header -->
+
+    <header class="sticky top-0 z-50 bg-[#23386E] shadow-md">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Left Nav -->
+        <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="nav-link text-white transition">Home</a>
+        <a href="#services" class="nav-link text-white transition">Services</a>        
+        <a href="#about" class="nav-link text-white transition">About</a>
+        <a href="#facilities" class="nav-link text-white transition">Facilities</a>
+        <a href="#contact" class="nav-link text-white transition">Contact</a>
+        </nav>
+
+        <!-- Centered Logo -->
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+        <a href="#home">
+            <img src="/UcchvasFooterLogo (1).png" alt="Ucchvas Logo" class="h-14" />
+        </a>
+        </div>
+
+        <!-- Right CTA Button -->
+        <div class="hidden md:block">
+        <a href="tel:+919666671107" class="bg-[#F37125] text-white px-5 py-2 rounded-md font-semibold hover:bg-[#d65e1f] transition">
+            Call Us
+        </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <div class="md:hidden ml-auto">
+        <button id="mobile-menu-button" class="text-[#fff] focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+        <a href="#home" class="block nav-link py-2">Home</a>
+        <a href="#services" class="block nav-link py-2">Services</a>
+        <a href="#about" class="block nav-link py-2">About</a>
+        <a href="#testimonials" class="block nav-link py-2">Testimonials</a>
+        <a href="#contact" class="block nav-link py-2">Contact</a>
+        <a href="tel:+919000000000" class="block bg-[#F37125] text-white text-center py-2 rounded-md mt-2">Call Us</a>
+    </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="flex flex-wrap items-center justify-between px-6 py-16 h-[90vh] bg-cover bg-center text-white" style="background-image: url('/VideoBanner.jpg');">
+    <!-- Text Content -->
+    <div class="w-full md:w-1/2 max-w-xl mb-8 md:mb-0">
+        <h1 class="text-4xl font-semibold text-white mb-4">Revive, Rebuild, Recover</h1>
+        <p class="text-lg text-white">Expert physiotherapy & rehabilitation for neurological, orthopedic & post-surgical recovery. Trust Ucchvas to guide your healing journey with care and compassion.</p>
+    </div>
+
+    <!-- Form -->
+    <div id="form" class="w-full md:w-1/2 max-w-md bg-white p-8 rounded-lg shadow-lg">
+      <h3 class="text-2xl font-semibold text-[#F37125] mb-4">Book an Appointment</h3>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-[#F37125]">
+        <input type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-[#F37125]">
+        <input type="email" placeholder="Email Address" required class="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-800 focus:ring-2 focus:ring-[#F37125]">
+        <select required class="w-full px-4 py-3 border-2 border-[#F37125] rounded-lg text-gray-900 focus:ring-2 focus:ring-[#F37125]">
+          <option value="">Select Service</option>
+          <option>Physiotherapy</option>
+          <option>Rehabilitation</option>
+          <option>Transitional Care</option>
+          <option>Long-Term Acute Care (LTAC)</option>
+          <option>Assisted Living</option>
+          <option>Dialysis</option>
+          <option>Medical Services</option>
+        </select>
+        <button type="submit" class="w-full bg-[#F37125] hover:bg-[#d65e1f] text-white font-semibold py-3 rounded-lg transition">
+          Submit
+        </button>
+      </form>
+    </div>
+    </section>
+
+
+    <!-- Services Slider Section -->
+    <section id="services" class="p-4 md:p-40 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-semibold text-center text-[#23386E] mb-10">Our Services</h2>
+
+        <!-- Swiper Container -->
+        <div class="relative overflow-visible">
+        <div class="swiper mySwiper w-full px-4 mx-auto">
+            <div class="swiper-wrapper">
+
+            <!-- Slide 1 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="Physiotherapy" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Physiotherapy</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Advanced physiotherapy for improved mobility and pain relief.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="Rehabilitation" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Rehabilitation</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Post-surgical and neurological rehab programs tailored to you.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="Transitional Care" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Transitional Care</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Bridge the gap between hospital discharge and home recovery.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="LTAC" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Long-Term Acute Care (LTAC)</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Extended care for complex medical needs and chronic conditions.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="Assisted Living" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Assisted Living</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Safe, supported living with dignity and expert medical care.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="Dialysis" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Dialysis</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Comfortable, monitored dialysis care in a home-like setting.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="swiper-slide flex justify-center">
+                <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="/media_Services_dialysis.jpg" alt="Medical Services" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-xl font-semibold text-[#23386E] mb-2">Medical Services</h3>
+                    <p class="text-gray-600 mb-4 text-sm">24/7 medical attention and diagnostic support by specialists.</p>
+                    <a href="#form" class="inline-block bg-[#F37125] text-white text-sm px-4 py-2 rounded hover:bg-[#d65e1f] transition">Know More</a>
+                </div>
+                </div>
+            </div>
+
+            </div>
+
+           <!-- Arrows (don't need extra Tailwind sizing if using custom CSS above) -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Restoring Hope Section -->
+    <section id="about" class="relative bg-cover bg-center bg-fixed bg-no-repeat text-white py-20" style="background-image: url('/media_Home_success\ strories\ ucchvas.webp');">
+    <div class="absolute inset-0 bg-[#23386E]/80 "></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 z-10 grid md:grid-cols-2 gap-12 items-center">
+        <!-- Left: Text & CTA -->
+        <div>
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight mb-4 text-[#F37125]">
+            Ucchvas Restoring Hope In Your Recovery Journey
+        </h2>
+        <p class="text-[#fff] mb-4">
+            At Ucchvas, we believe that the power of rehabilitation has the ability to transform lives!
+        </p>
+        <p class="text-[#fff] mb-8">
+            Our state-of-the-art physiotherapy and rehabilitation services help patients regain their independence, rekindle hope, and return to a healthy lifestyle — all through personalized care plans and modern therapies.
+        </p>
+        
+        </div>
+
+        <!-- Right: Stats -->
+        <div class="grid gap-6 mx-10 md:mx-24">
+        <div class="bg-white/10 p-6 rounded-xl border border-white/10 backdrop-blur-sm">
+            <h3 class="text-4xl md:text-5xl font-bold text-white">100,000+</h3>
+            <p class="text-[#F37125] font-medium mt-1">Occupied bed days</p>
+        </div>
+        <div class="bg-white/10 p-6 rounded-xl border border-white/10 backdrop-blur-sm">
+            <h3 class="text-4xl md:text-5xl font-bold text-white">3,500+</h3>
+            <p class="text-[#F37125] font-medium mt-1">Satisfied patients</p>
+        </div>
+        <div class="bg-white/10 p-6 rounded-xl border border-white/10 backdrop-blur-sm">
+            <h3 class="text-4xl md:text-5xl font-bold text-white">120+ Beds</h3>
+            <p class="text-[#F37125] font-medium mt-1">Across 2 strategically located units</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Why Choose Ucchvas with Custom Icons -->
+    <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold text-[#23386E] mb-6">Why Choose Ucchvas</h2>
+        <p class="max-w-3xl mx-auto text-gray-600 mb-12">
+        Healing is a journey — and at Ucchvas, you get personalized care, world-class facilities, and a team that truly cares.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-left">
+        
+        <!-- Card 1 -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src="/hotel-svgrepo-com.svg" alt="Advanced Facilities Icon" class="w-12 h-12 mb-4">
+            <h4 class="text-xl font-semibold text-[#F37125] mb-2">Advanced Facilities</h4>
+            <p class="text-[#23386E] text-sm">Modern rehabilitation equipment and peaceful recovery rooms.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src="/hotel-svgrepo-com.svg" alt="Medical Team Icon" class="w-12 h-12 mb-4">
+            <h4 class="text-xl font-semibold text-[#F37125] mb-2">Expert Medical Team</h4>
+            <p class="text-[#23386E] text-sm">Physiotherapists, neurologists, and specialists with years of experience.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src="/hotel-svgrepo-com.svg" alt="Personalized Care Icon" class="w-12 h-12 mb-4">
+            <h4 class="text-xl font-semibold text-[#F37125] mb-2">Custom Care Plans</h4>
+            <p class="text-[#23386E] text-sm">Every patient gets a personalized recovery strategy, reviewed weekly.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src="/hotel-svgrepo-com.svg" alt="Empathy Icon" class="w-12 h-12 mb-4">
+            <h4 class="text-xl font-semibold text-[#F37125] mb-2">Compassion-First Approach</h4>
+            <p class="text-[#23386E] text-sm">We treat patients like family — with warmth, dignity, and respect.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src="/hotel-svgrepo-com.svg" alt="24/7 Support Icon" class="w-12 h-12 mb-4">
+            <h4 class="text-xl font-semibold text-[#F37125] mb-2">24/7 Nursing Support</h4>
+            <p class="text-[#23386E] text-sm">Dedicated staff available round the clock for any medical needs.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <img src="/hotel-svgrepo-com.svg" alt="Prime Locations Icon" class="w-12 h-12 mb-4">
+            <h4 class="text-xl font-semibold text-[#F37125] mb-2">Prime Locations</h4>
+            <p class="text-[#23386E] text-sm">Centers at Banjara Hills and Gachibowli — easy to access, hard to forget.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="py-16 bg-[#F37125] text-center px-[10%]">
+    <h2 class="text-3xl font-semibold text-[#fff] mb-8">Watch Our Patients' Recovery Journeys</h2>
+    <div id="youtubeGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
+        <!-- Videos will load here -->
+    </div>
+    <a href="https://www.youtube.com/playlist?list=PL32ECq6MtXF-oXUrlQ14gT8ggx0B6UdTY" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#23386E] hover:bg-[#fff] text-[#fff] hover:text-[#23386E] font-medium px-6 py-3 my-8 rounded-md shadow-md transition">
+        Watch Full Playlist on YouTube
+    </a>
+    </section>
+
+    
+    <section id="facilities" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-semibold text-center text-[#23386E] mb-10">Our Facilities</h2>
+
+    <div class="swiper facilitiesSwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+            <img src="/media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
+            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
+                Rehab Ward
+            </div>
+        </div>
+
+        
+      </div>
+      
+
+      <!-- Swiper Arrows -->
+      <!-- Arrows (don't need extra Tailwind sizing if using custom CSS above) -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" class="px-[5%] py-16 " ">
+  <div class="w-full mx-auto flex flex-col lg:flex-row items-center justify-center gap-20 ">
+
+    <!-- Left: Maps -->
+    <div class="w-full lg:w-1/2 grid grid-cols-1 gap-6">
+      
+      <!-- Map 1 -->
+      <div class="relative rounded-lg  overflow-hidden ">
+        <div class="relative text-[#F37125] text-xl font-semibold p-3">
+         Banjara Hills
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.947299558244!2d78.41913707493534!3d17.414316583477508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97c9a80d8839%3A0x553e63b3c4248b88!2sUCCHVAS%20Rehabilitation%20Center%20-%20Banjara%20Hills!5e0!3m2!1sen!2sin!4v1747803620757!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Map 2 -->
+      <div class="relative rounded-lg overflow-hidden">
+        <div class="relative text-[#F37125] text-xl font-semibold p-3">
+         Gachibowli
+        </div>  
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.601438663731!2d78.36880187493577!3d17.430904583463697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9354af7b95e5%3A0x960133ba7cf4fb0d!2sUCCHVAS%20Rehabilitation%20Center%20-%20Gachibowli!5e0!3m2!1sen!2sin!4v1747803538863!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+
+    <!-- Right: Form -->
+    <div class="w-full lg:w-1/2 bg-white p-6 rounded-lg">
+  <h3 class="text-4xl font-semibold text-[#F37125] mb-6">Frequently Asked Questions</h3>
+
+  <div class="space-y-4">
+    <!-- Accordion Item -->
+    <div class="accordion border border-gray-300 p-2 rounded-lg">
+      <button class="w-full flex justify-between items-center p-2 text-left text-[#23386E] font-medium">
+        What conditions do you treat?
+        <span class="transition-transform duration-300 rotate-0 accordion-icon">&#9662;</span>
+      </button>
+      <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-gray-600 px-4">
+        We specialize in neurological, orthopedic, post-surgical rehabilitation, and more.
+      </div>
+    </div>
+
+    <div class="accordion border border-gray-300 p-2 rounded-lg">
+      <button class="w-full flex justify-between items-center p-2 text-left text-[#23386E] font-medium">
+        Do you offer inpatient rehab?
+        <span class="transition-transform duration-300 rotate-0 accordion-icon">&#9662;</span>
+      </button>
+      <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-gray-600 px-4">
+        Yes, we have full-time inpatient rehabilitation facilities with 24/7 care.
+      </div>
+    </div> 
+
+    <div class="accordion border border-gray-300 p-2 rounded-lg">
+      <button class="w-full flex justify-between items-center p-2 text-left text-[#23386E] font-medium">
+        Are your services covered by insurance?
+        <span class="transition-transform duration-300 rotate-0 accordion-icon">&#9662;</span>
+      </button>
+      <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-gray-600 px-4">
+        Coverage depends on your provider and policy. We can help verify eligibility.
+      </div>
+    </div>
+
+    <div class="accordion border border-gray-300 p-2 rounded-lg">
+      <button class="w-full flex justify-between items-center p-2 text-left text-[#23386E] font-medium">
+        What are your visiting hours?
+        <span class="transition-transform duration-300 rotate-0 accordion-icon">&#9662;</span>
+      </button>
+      <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-gray-600 px-4">
+        Visiting hours are typically 11 AM to 7 PM. Exceptions can be made upon request.
+      </div>
+    </div>
+
+    <div class="accordion border border-gray-300 p-2 rounded-lg">
+      <button class="w-full flex justify-between items-center p-2 text-left text-[#23386E] font-medium">
+        Are your services covered by insurance?
+        <span class="transition-transform duration-300 rotate-0 accordion-icon">&#9662;</span>
+      </button>
+      <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-gray-600 px-4">
+        Coverage depends on your provider and policy. We can help verify eligibility.
+      </div>
+    </div>
+
+    <div class="accordion border border-gray-300 p-2 rounded-lg">
+      <button class="w-full flex justify-between items-center p-2 text-left text-[#23386E] font-medium">
+        Are your services covered by insurance?
+        <span class="transition-transform duration-300 rotate-0 accordion-icon">&#9662;</span>
+      </button>
+      <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 text-sm text-gray-600 px-4">
+        Coverage depends on your provider and policy. We can help verify eligibility.
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    document.querySelectorAll('.accordion').forEach((accordion) => {
+      const btn = accordion.querySelector('button');
+      const content = accordion.querySelector('.accordion-content');
+      const icon = accordion.querySelector('.accordion-icon');
+
+      btn.addEventListener('click', () => {
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+        
+        // Close all accordions
+        document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = '0px');
+        document.querySelectorAll('.accordion-icon').forEach(i => i.classList.remove('rotate-180'));
+
+        if (!isOpen) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+  </script>
+
+</div>
+
+
+  </div>
+</section>
+
+
+  <footer class="bg-[#23386E] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Logo & About -->
+      <div>
+        <img src="/UcchvasFooterLogo (1).png" alt="Ucchvas Logo" class="w-[30%] mb-4">
+        <p class="text-sm text-white/80">Ucchvas is dedicated to restoring lives with compassionate, expert physiotherapy and rehabilitation care.</p>
+      </div>
+
+      <!-- Our Centers -->
+      <div>
+        <h4 class="text-2xl font-semibold mb-4 text-[#F37125]">Our Centers</h4>
+        <div class="flex items-center gap-2 mb-2">
+          <img src="/location-svgrepo-com.svg" alt="Location" class="w-10 h-10 ">
+          <a href="https://goo.gl/maps/example1" target="_blank" class="text-sm hover:underline">Banjara Hills</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <img src="/location-svgrepo-com.svg" alt="Location" class="w-10 h-10 ">
+          <a href="https://goo.gl/maps/example2" target="_blank" class="text-sm hover:underline">Gachibowli</a>
+        </div>
+      </div>
+
+      <!-- Connect With Us -->
+      <div>
+        <h4 class="text-2xl font-semibold mb-4 text-[#F37125]">Connect With Us</h4>
+        <div class="flex space-x-3 mb-4">
+        <!-- Facebook -->
+        <a href="https://facebook.com/ucchvas" target="_blank" class="bg-[#23386E] hover:bg-[#000] p-2 rounded-md transition">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22,12.07A10,10,0,1,0,9.93,22V14.9H7v-3h2.93V9.71c0-2.89,1.72-4.48,4.35-4.48a17.53,17.53,0,0,1,2.57.22v2.83H15.7c-1.43,0-1.87.89-1.87,1.8v2.16H17l-.43,3H13.83V22A10,10,0,0,0,22,12.07Z"/>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/ucchvas" target="_blank" class="bg-[#23386E] hover:bg-[#000] p-2 rounded-md transition">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.9a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/channel/UC5AgvCezOkc5kDvqnPbWOBQ" target="_blank" class="bg-[#23386E] hover:bg-[#000] p-2 rounded-md transition">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21.6 3.2a2.4 2.4 0 00-1.68-1.68C18.2 1 12 1 12 1s-6.2 0-7.92.52A2.4 2.4 0 002.4 3.2C2 4.92 2 8 2 8s0 3.08.4 4.8a2.4 2.4 0 001.68 1.68c1.72.52 7.92.52 7.92.52s6.2 0 7.92-.52a2.4 2.4 0 001.68-1.68C22 11.08 22 8 22 8s0-3.08-.4-4.8zM10 11V5l6 3-6 3z"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/company/transitionalcare/" target="_blank" class="bg-[#23386E] hover:bg-[#000] p-2 rounded-md transition">
+          <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4zm7.5 0h3.6v1.71h.05c.5-.94 1.72-1.93 3.54-1.93 3.8 0 4.5 2.49 4.5 5.73V20h-4v-5.5c0-1.32-.03-3-1.83-3-1.83 0-2.12 1.43-2.12 2.9V20h-4z"/>
+          </svg>
+        </a>
+
+        <!-- Twitter X -->
+        <a href="https://twitter.com/ucchvasc" target="_blank" class="bg-[#23386E] hover:bg-[#F37125] p-2 rounded-md transition">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.34 2H21l-7.33 8.39L22 22h-6.5l-5.1-6.6L4.5 22H1l7.89-9-7.2-8h6.5l4.77 6.18z"/>
+        </svg>
+        </a>
+
+      </div>
+
+          <p class="text-sm flex items-center gap-2">
+              <!-- Phone Icon -->
+              <svg class="w-6 h-6 text-[#F37125]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.11-.21c1.12.45 2.33.69 3.58.69.55 0 1 .45 1 1V20a1 1 0 01-1 1C10.74 21 3 13.26 3 4a1 1 0 011-1h3.5c.55 0 1 .45 1 1 0 1.25.24 2.46.69 3.58.16.39.06.85-.21 1.11l-2.36 2.1z"/>
+              </svg>
+              <a href="tel:+919000000000" class="text-[#fff] text-[18px] hover:text-[#F37125] transition">Call Us</a>
+          </p>
+
+          <p class="text-sm flex items-center gap-2 mt-2">
+              <!-- Mail Icon -->
+              <svg class="w-6 h-6 text-[#F37125]" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+              </svg>
+              <a href="mailto:contact@ucchvas.com" class="text-[#fff] text-[18px] hover:text-[#F37125] transition">Email</a>
+          </p>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Line -->
+    <div class="mt-10 border-t border-white/20 pt-6 text-center text-sm text-white/60">
+      &copy; 2025 Ucchvas. All rights reserved.
+    </div>
+  </footer>
+
+ </body>
+</html>
