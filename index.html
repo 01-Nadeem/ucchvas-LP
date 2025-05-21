@@ -30,8 +30,10 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".facilitiesSwiper", {
     ...swiperConfig,
     breakpoints: {
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 4 }
+      640: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      900: { slidesPerView: 3 },
+      1280: { slidesPerView: 4 }
     }
   });
 
@@ -262,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 1 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="Physiotherapy" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_physiotherapy.webp" alt="Physiotherapy" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Physiotherapy</h3>
                     <p class="text-gray-600 mb-4 text-sm">Advanced physiotherapy for improved mobility and pain relief.</p>
@@ -273,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 2 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="Rehabilitation" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_rehabilitation (1).webp" alt="Rehabilitation" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Rehabilitation</h3>
                     <p class="text-gray-600 mb-4 text-sm">Post-surgical and neurological rehab programs tailored to you.</p>
@@ -284,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 3 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="Transitional Care" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_transitional-care.webp" alt="Transitional Care" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Transitional Care</h3>
                     <p class="text-gray-600 mb-4 text-sm">Bridge the gap between hospital discharge and home recovery.</p> 
@@ -295,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 4 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="LTAC" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_LTAC.webp" alt="LTAC" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Long-Term Acute Care (LTAC)</h3>
                     <p class="text-gray-600 mb-4 text-sm">Extended care for complex medical needs and chronic conditions.</p>
@@ -306,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 5 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="Assisted Living" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_assisted-living.webp" alt="Assisted Living" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Assisted Living</h3>
                     <p class="text-gray-600 mb-4 text-sm">Safe, supported living with dignity and expert medical care.</p>
@@ -317,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 6 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="Dialysis" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_dialysis.webp" alt="Dialysis" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Dialysis</h3>
                     <p class="text-gray-600 mb-4 text-sm">Comfortable, monitored dialysis care in a home-like setting.</p>
@@ -328,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <!-- Slide 7 -->
             <div class="swiper-slide flex justify-center">
                 <div class="w-[350px] bg-white rounded-lg shadow-md overflow-hidden">
-                <img src="media_Services_dialysis.jpg" alt="Medical Services" class="w-full h-48 object-cover">
+                <img src="Img-Services/media_Services_medical service.webp" alt="Medical Services" class="w-full h-[50vh] object-cover">
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-[#23386E] mb-2">Medical Services</h3>
                     <p class="text-gray-600 mb-4 text-sm">24/7 medical attention and diagnostic support by specialists.</p>
@@ -461,72 +463,107 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div class="swiper facilitiesSwiper">
       <div class="swiper-wrapper">
-        <!-- Slide 1 -->
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/4th gen laser.webp" alt="4th Gen Laser" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">4th Gen Laser</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/24 7 diagnostic support.webp" alt="247 Diagnostic Support" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Diagnostic Support</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/24 7 expert medical supervision.webp" alt="24 7 Expert Medical Supervision" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Expert Medical Supervision</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/24 7 Pharmacy.webp" alt="24 7 Pharmacy" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Pharmacy</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/247 Ambulance Support.webp" alt="247 Ambulance Support" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Ambulance Support</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/Advanced Physiotherapy Studio.webp" alt="Advanced Physiotherapy Studio" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 left-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Advanced Physiotherapy Studio</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/Clinical Psychiatrist.webp" alt="Clinical Psychiatrist" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Clinical Psychiatrist</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/Cognitive Therapy.webp" alt="Cognitive Therapy" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Cognitive Therapy</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-            <img src="media_Services_dialysis.jpg" alt="Rehab Ward" class="w-full h-64 object-cover">
-            <div class="absolute top-3 right-3 bg-white text-[#F37125] text-xl font-semibold px-3 py-1 rounded shadow-md">
-                Rehab Ward
-            </div>
+          <img src="facilities/Gait Training System.webp" alt="Gait Training System" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Gait Training System</div>
         </div>
 
-        
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Hand Rehab Suite.webp" alt="Hand Rehab Suite" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Hand Rehab Suite</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Inhouse Rehab Kitchen.webp" alt="Inhouse Rehab Kitchen" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Inhouse Rehab Kitchen</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/media_Fac_personalisednutrition (1).webp" alt="Personalised Nutrition" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Personalised Nutrition</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Patient Mobility System.webp" alt="Patient Mobility System" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Patient Mobility System</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Personal Nutrition.webp" alt="Personal Nutrition" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Personal Nutrition</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Rehab Exercise Corridor.webp" alt="Rehab Exercise Corridor" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Rehab Exercise Corridor</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Rehab Psychological Counselling.webp" alt="Rehab Psychological Counselling" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Rehab Psychological Counselling</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Skilled Bedside Assistance.webp" alt="Skilled Bedside Assistance" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Skilled Bedside Assistance</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Specialist Consultant Visit.webp" alt="Specialist Consultant Visit" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Specialist Consultant Visit</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Speech, Swallow & Occupational Therapy.webp" alt="Speech, Swallow & Occupational Therapy" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 left-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Speech, Swallow & Occupational Therapy</div>
+        </div>
+
+        <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
+          <img src="facilities/Wi-Fi Enabled Individual Rooms.webp" alt="Wi-Fi Enabled Individual Rooms" class="w-full h-64 object-cover">
+          <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Wi-Fi Enabled Individual Rooms</div>
+        </div>
       </div>
+
       
 
       <!-- Swiper Arrows -->
