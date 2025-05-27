@@ -1,76 +1,80 @@
     <!DOCTYPE html>
     <html lang="en">
+
+     <title>Rehabilitation Centre in Hyderabad |Transitional Care.</title>
+     <meta name="description" content="Best Rehabilitation and Physiotherapy Centre in Hyderabad For Neuro, Spine injury, Ortho, Sports. Ucchvas is Top Rated Transitional Care Center in Hyderabad.">
+
       <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Shared Swiper config
-  const swiperConfig = {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    centeredSlides: false,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    speed: 800,
-    loop: true,
-    breakpoints: {
-      640: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      900: { slidesPerView: 3 },
-      1280: { slidesPerView: 4 }
-    }
-  };
+    document.addEventListener("DOMContentLoaded", function () {
+      // Shared Swiper config
+      const swiperConfig = {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        centeredSlides: false,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        speed: 800,
+        loop: true,
+        breakpoints: {
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          900: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 }
+        }
+      };
 
-  // Initialize both sliders with the same config
-  new Swiper(".mySwiper", swiperConfig);
-  new Swiper(".facilitiesSwiper", {
-    ...swiperConfig,
-    breakpoints: {
-      640: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      900: { slidesPerView: 3 },
-      1280: { slidesPerView: 4 }
-    }
-  });
+      // Initialize both sliders with the same config
+      new Swiper(".mySwiper", swiperConfig);
+      new Swiper(".facilitiesSwiper", {
+        ...swiperConfig,
+        breakpoints: {
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          900: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 }
+        }
+      });
 
-  // Scroll Spy for active link highlighting
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll("section[id]");
+      // Scroll Spy for active link highlighting
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll("section[id]");
 
-  function setActiveLink() {
-    const scrollY = window.pageYOffset;
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 200;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinks.forEach(link => {
-          const href = link.getAttribute("href");
-          if (href === `#${sectionId}`) {
-            link.classList.add("text-[#F37125]", "font-semibold");
-            link.classList.remove("text-white");
-          } else {
-            link.classList.remove("text-[#F37125]", "font-semibold");
-            link.classList.add("text-white");
+      function setActiveLink() {
+        const scrollY = window.pageYOffset;
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 200;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute("id");
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              const href = link.getAttribute("href");
+              if (href === `#${sectionId}`) {
+                link.classList.add("text-[#F37125]", "font-semibold");
+                link.classList.remove("text-white");
+              } else {
+                link.classList.remove("text-[#F37125]", "font-semibold");
+                link.classList.add("text-white");
+              }
+            });
           }
         });
       }
+
+      setActiveLink();
+      window.addEventListener("scroll", setActiveLink);
+
+      // Mobile menu toggle
+      document.getElementById('mobile-menu-button')?.addEventListener('click', function () {
+        document.getElementById('mobile-menu')?.classList.toggle('hidden');
+      });
     });
-  }
-
-  setActiveLink();
-  window.addEventListener("scroll", setActiveLink);
-
-  // Mobile menu toggle
-  document.getElementById('mobile-menu-button')?.addEventListener('click', function () {
-    document.getElementById('mobile-menu')?.classList.toggle('hidden');
-  });
-});
-</script>
+  </script>
 
 
 <script>
@@ -119,6 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ucchvas – Physiotherapy & Rehab</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- whatsapp chatbot -->
     <script 
       type="text/javascript"
       src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
@@ -374,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
           Leading the Way in Personalized Recovery 
         </h2>
         <p class="text-[#fff] mb-4">
-            Trusted by many, we excel in assessing, diagnosing, and managing patient care. Through personalized physiotherapy services, we help patients enhance their physical, psychological, and social well-being, improving their quality of life every step of the way. 
+          Trusted by many, we excel in assessing, diagnosing, and managing patient care. Through personalized physiotherapy services, we help patients enhance their physical, psychological, and social well-being, improving their quality of life every step of the way. 
         </p>
         
         </div>
@@ -472,27 +478,27 @@ document.addEventListener("DOMContentLoaded", function () {
     <div class="swiper facilitiesSwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-          <img src="facilities/4th gen laser.webp" alt="4th Gen Laser" class="w-full h-64 object-cover">
+          <img src="facilities/4th Generation Laser.webp" alt="4th Gen Laser" class="w-full h-64 object-cover">
           <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">4th Gen Laser</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-          <img src="facilities/24 7 diagnostic support.webp" alt="247 Diagnostic Support" class="w-full h-64 object-cover">
+          <img src="facilities/Uchavass web banners icons-3-25.webp" alt="247 Diagnostic Support" class="w-full h-64 object-cover">
           <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Diagnostic Support</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-          <img src="facilities/24 7 expert medical supervision.webp" alt="24 7 Expert Medical Supervision" class="w-full h-64 object-cover">
+          <img src="facilities/24_7 expert medical supervision.webp" alt="24 7 Expert Medical Supervision" class="w-full h-64 object-cover">
           <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Expert Medical Supervision</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-          <img src="facilities/24 7 Pharmacy.webp" alt="24 7 Pharmacy" class="w-full h-64 object-cover">
+          <img src="facilities/24_7 Pharmacy.webp" alt="24 7 Pharmacy" class="w-full h-64 object-cover">
           <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Pharmacy</div>
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-          <img src="facilities/247 Ambulance Support.webp" alt="247 Ambulance Support" class="w-full h-64 object-cover">
+          <img src="facilities/24_7 Ambulance Support.webp" alt="247 Ambulance Support" class="w-full h-64 object-cover">
           <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">24/7 Ambulance Support</div>
         </div>
 
@@ -527,7 +533,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
 
         <div class="swiper-slide relative group overflow-hidden rounded-lg shadow-md">
-          <img src="facilities/media_Fac_personalisednutrition (1).webp" alt="Personalised Nutrition" class="w-full h-64 object-cover">
+          <img src="facilities/Personal Nutrition.webp" alt="Personalised Nutrition" class="w-full h-64 object-cover">
           <div class="absolute top-3 right-3 bg-white text-[#F37125] text-sm font-semibold px-3 py-1 rounded shadow-md">Personalised Nutrition</div>
         </div>
 
@@ -794,7 +800,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       </div>
 
-          <p class="text-sm flex items-center gap-2">
+          <p class="text-sm flex items-center w-fit gap-2">
               <!-- Phone Icon -->
               <svg class="w-6 h-6 text-[#F37125]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.11-.21c1.12.45 2.33.69 3.58.69.55 0 1 .45 1 1V20a1 1 0 01-1 1C10.74 21 3 13.26 3 4a1 1 0 011-1h3.5c.55 0 1 .45 1 1 0 1.25.24 2.46.69 3.58.16.39.06.85-.21 1.11l-2.36 2.1z"/>
@@ -802,12 +808,12 @@ document.addEventListener("DOMContentLoaded", function () {
               <a href="tel:+919666671107" class="text-[#fff] text-[18px] hover:text-[#F37125] transition">Call Us</a>
           </p>
 
-          <p class="text-sm flex items-center gap-2 mt-2">
-              <!-- Mail Icon -->
-              <svg class="w-6 h-6 text-[#F37125]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
-              </svg>
-              <a href="mailto:info@ucchvas.com" class="text-[#fff] text-[18px] hover:text-[#F37125] transition">Email</a>
+          <p class="text-sm flex items-center w-fit gap-2 mt-2">
+            <!-- Mail Icon -->
+            <svg class="w-6 h-6 text-[#F37125]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+            </svg>
+            <a href="mailto:info@ucchvas.com" class="text-[#fff] text-[18px] hover:text-[#F37125] transition">Email</a>
           </p>
 
       </div>
